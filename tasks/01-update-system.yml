@@ -1,0 +1,26 @@
+---
+- name: Install EPEL repo
+  yum:
+    name: epel-release
+    state: present
+
+- name: update system
+  yum:
+     name: "*"
+     state: latest
+     update_cache: yes
+
+- name: Check for reboot
+  shell: if [ $(rpm -q kernel|tail -n 1) != kernel-$(uname -r) ]; then echo 'reboot'; else echo 'no'; fi
+  ignore_errors: true
+  register: reboot_hint
+
+- name: Reboot
+  reboot:
+  ignore_errors: true
+  when: reboot_hint.stdout.find("reboot") != -1
+  #register: rebooting
+
+- name: disable selinux
+  selinux:
+    state: disabled  

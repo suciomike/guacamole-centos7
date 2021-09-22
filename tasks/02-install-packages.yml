@@ -1,0 +1,16 @@
+---
+# tasks file for guacamole-ansible-role
+- name: Download li.nux.ro nux desktop repository key
+  rpm_key:
+    state: present
+    key: http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro
+
+- name: Add li.nux.ro nux desktop repository
+  yum:
+    name: http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
+    state: present
+
+- name: Install necessary packages
+  yum:
+    name: '{{ guacamole_packages }}'
+    state: present

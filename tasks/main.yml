@@ -1,2 +1,59 @@
 ---
 # tasks file for guacamole-centos7
+
+- name: Create temp directory
+  file:
+    path: '{{ guacamole_temp_path }}'
+    state: directory
+  changed_when: False
+
+- name: Create Guacamole home
+  file:
+    path: '{{ guacamole_home }}'
+    state: directory
+
+- name: Update System
+  include: 01-update-system.yml
+
+- name: Install packages
+  include: 02-install-packages.yml
+
+- name: Install Tomcat9
+  include: 03-install-tomcat.yml
+
+- name: Install MariaDB
+  include: 04-install-mariadb.yml
+
+- name: Install guacamole server
+  include: 05-install-guacamole-server.yml
+
+- name: Install guacamole client
+  include: 06-install-guacamole-client.yml
+
+- name: Configure database
+  include: 07-configure-database.yml
+
+- name: Configure guacamole
+  include: 08-configure-guacamole.yml
+
+- name: Configure firewalld
+  include: 10-configure-firewalld.yml
+  when: guacamole_configure_firewalld
+
+- name: Start and enable guacd on startup
+  systemd: 
+    name: guacd
+    state: started
+    enabled: yes
+    daemon_reload: yes
+
+- name: Clean up temporary files
+  file:
+    path: '{{ guacamole_temp_path }}'
+    state: absent
+  changed_when: False
+
+- name: Enable SElinux
+  selinux:
+    policy: targeted
+    state: enforcing

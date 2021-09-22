@@ -1,2 +1,41 @@
 ---
 # vars file for guacamole-centos7
+
+guacamole_packages:
+  - "cairo-devel"
+  - "freerdp-devel"
+  - "java-1.8.0-openjdk"
+  - "libjpeg-turbo-devel"
+  - "libpng-devel"
+  - "libssh2-devel"
+  - "libtelnet-devel"
+  - "libvncserver-devel"
+  - "libwebp-devel"
+  - "libvorbis-devel"
+  - "libwebsockets-devel"
+  - "openssl-devel"
+  - "pango-devel"
+  - "pulseaudio-libs-devel"
+  - "terminus-fonts"
+  - "dejavu-sans-mono-fonts.noarch"
+  - "uuid-devel"
+  - "ffmpeg-devel"
+  - "gcc"
+  - "git"
+  - "libtool"
+  - "vim"
+  - "policycoreutils-python"
+  - "MySQL-python"
+
+
+guacamole_temp_path: /tmp/guactempdir
+
+guacamole_home: /etc/guacamole
+
+guacamole_auth_jdbc_url: "http://apache.org/dyn/closer.cgi?action=download&filename=guacamole/{{ guacamole_version }}/binary/guacamole-auth-jdbc-{{ guacamole_version }}.tar.gz"
+
+
+guacamole_mysql_connector_java_download_from: "https://dev.mysql.com/get/Downloads/Connector-J"
+guacamole_mysql_connector_java_url: "{{ guacamole_mysql_connector_java_download_from }}/mysql-connector-java-{{ guacamole_mysql_connector_java_version }}.tar.gz"
+
+

@@ -1,0 +1,23 @@
+---
+# tasks file for guacamole-ansible-role
+
+- name: Install mariadb
+  yum:
+    name: mariadb-server
+    state: present
+
+- name: Make sure mariadb service is running
+  systemd:
+    name: mariadb
+    state: started
+    enabled: yes
+
+- name: Configure mariadb root user
+  shell: mysqladmin -u root password {{ guacamole_mysql_root_password }}
+  register: set_root_password
+  failed_when: False
+  changed_when: False
+  
+- name: MariaDB secure installation
+  include: 09-mysql-secure-installation.yml
+  when: guacamole_mysql_secure_installation

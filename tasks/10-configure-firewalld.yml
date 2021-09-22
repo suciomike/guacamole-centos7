@@ -1,0 +1,22 @@
+- name: Install firewalld
+  yum:
+    name: firewalld
+    state: present
+
+- name: Make sure firewalld service is running
+  systemd:
+    name: firewalld
+    state: started
+    enabled: yes
+
+- name: open port
+  firewalld:
+    port: 8080/tcp
+    permanent: yes
+    state: enabled
+
+- name: reload firewall
+  shell: firewall-cmd --reload
+
+
+

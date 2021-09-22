@@ -1,0 +1,9 @@
+---
+# tasks file for guacamole-ansible-role
+
+- name: Configure guacamole
+  template:
+    src: guacamole.properties.j2 
+    dest: /etc/guacamole/guacamole.properties
+  notify: restart tomcat
+
