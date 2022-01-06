@@ -13,7 +13,7 @@ Role Variables
 --------------
 
 Some variables that require review:
-- `guacamole_version`: Guacamole version to be installed. Currently, latest version is "1.3.0".
+- `guacamole_version`: Guacamole version to be installed. Currently, latest version is "1.4.0".
 - `tomcat9_version`: Tomcat 9 version to be installed. 
 - `guacamole_mysql_root_password`: Password for root user to be created for local mariadb installation. 
 - `guacamole_db_name`: Database name used by guacamole. Default is "guac_db".
