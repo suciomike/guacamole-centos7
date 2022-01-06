@@ -8,7 +8,7 @@
 
 - name: Download guacamole client
   get_url:
-    url: http://apache.org/dyn/closer.cgi?action=download&filename=guacamole/{{ guacamole_version }}/binary/guacamole-{{ guacamole_version }}.war
+    url: '{{ guacamole_client_url }}'
     dest: /work/tomcat/webapps/
   when: client_is_installed.stat.exists == False
 

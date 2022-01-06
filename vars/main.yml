@@ -32,10 +32,16 @@ guacamole_temp_path: /tmp/guactempdir
 
 guacamole_home: /etc/guacamole
 
-guacamole_auth_jdbc_url: "http://apache.org/dyn/closer.cgi?action=download&filename=guacamole/{{ guacamole_version }}/binary/guacamole-auth-jdbc-{{ guacamole_version }}.tar.gz"
+tomcat9_url: "https://downloads.apache.org/tomcat/tomcat-9/v{{ tomcat9_version }}/bin/apache-tomcat-{{ tomcat9_version }}.tar.gz"
 
+guacamole_server_url: "https://downloads.apache.org/guacamole/{{ guacamole_version }}/source/guacamole-server-{{ guacamole_version }}.tar.gz"
+
+guacamole_client_url: "https://downloads.apache.org/guacamole/{{ guacamole_version }}/binary/guacamole-{{ guacamole_version }}.war" 
+
+guacamole_auth_jdbc_url: "https://downloads.apache.org/guacamole/{{ guacamole_version }}/binary/guacamole-auth-jdbc-{{ guacamole_version }}.tar.gz"
 
 guacamole_mysql_connector_java_download_from: "https://dev.mysql.com/get/Downloads/Connector-J"
+
 guacamole_mysql_connector_java_url: "{{ guacamole_mysql_connector_java_download_from }}/mysql-connector-java-{{ guacamole_mysql_connector_java_version }}.tar.gz"
 
 

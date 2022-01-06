@@ -14,7 +14,7 @@
 
 - name: Download Guacamole Server
   get_url:
-    url: http://apache.org/dyn/closer.cgi?action=download&filename=guacamole/{{ guacamole_version }}/source/guacamole-server-{{ guacamole_version }}.tar.gz
+    url: '{{ guacamole_server_url }}'
     dest: '{{ guacamole_temp_path }}/server'
   when: server_is_installed.stat.exists == False
 

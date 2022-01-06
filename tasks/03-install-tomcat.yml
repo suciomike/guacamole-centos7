@@ -1,12 +1,12 @@
 ---  
 - name: Check to see if tomcat is downloaded 
   stat:
-   path: "/work/apache-tomcat-{{ tomcat_version }}"
+   path: "/work/apache-tomcat-{{ tomcat9_version }}"
   register: downloaded
 
 - name: download tomcat
   get_url:
-    url: "https://archive.apache.org/dist/tomcat/tomcat-9/v{{ tomcat_version }}/bin/apache-tomcat-{{ tomcat_version }}.tar.gz"
+    url: "{{ tomcat9_url }}"
     dest: '{{ guacamole_temp_path }}'
   when: not downloaded.stat.exists
 
@@ -20,14 +20,14 @@
 
 - name: extract tomcat packages
   unarchive:
-   src: "{{ guacamole_temp_path }}/apache-tomcat-{{ tomcat_version }}.tar.gz"
+   src: "{{ guacamole_temp_path }}/apache-tomcat-{{ tomcat9_version }}.tar.gz"
    dest: /work
    remote_src: yes
   when: not downloaded.stat.exists
 
 - name: Create symbolic link
   file: 
-    src: /work/apache-tomcat-{{ tomcat_version }}
+    src: /work/apache-tomcat-{{ tomcat9_version }}
     dest: /work/tomcat
     state: link
 
