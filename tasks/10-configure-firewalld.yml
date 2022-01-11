@@ -22,6 +22,7 @@
     permanent: yes
     immediate: yes
     state: enabled
+  when: port_redirect 
 
 - name: reload firewall
   shell: firewall-cmd --reload
