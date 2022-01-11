@@ -12,13 +12,10 @@
     dest: /work/tomcat/webapps/
   when: client_is_installed.stat.exists == False
 
-  #- name: Check to see if war needs to be renamed
-  # stat: path=/work/tomcat/guacamole-1.1.0.war
-  # register: war_rename
 
 - name: Rename war
   command: mv  /work/tomcat/webapps/guacamole-{{ guacamole_version }}.war /work/tomcat/webapps/{{ guacamole_name }}.war
-  # when: war_rename.stat.exists
+
 
 - name: Update permissions
   file: 
