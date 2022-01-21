@@ -7,7 +7,7 @@ guacamole_name: ROOT
 # Version of Guacamole you would like to install. Current version is 1.4.0 as of 01/22.
 guacamole_version: 1.4.0
 
-# Change to the latest version of Tomcat 9. Current version is 9.0.56 as of 12/21
+# Change to the latest version of Tomcat 9. Current version is 9.0.58 as of 01/22
 tomcat9_version: 9.0.58
 
 # Change the password of mysql root
