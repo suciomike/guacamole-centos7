@@ -8,7 +8,7 @@ guacamole_name: ROOT
 guacamole_version: 1.4.0
 
 # Change to the latest version of Tomcat 9. Current version is 9.0.56 as of 12/21
-tomcat9_version: 9.0.56
+tomcat9_version: 9.0.58
 
 # Change the password of mysql root
 guacamole_mysql_root_password: PASSword1234
